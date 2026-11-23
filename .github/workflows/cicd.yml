@@ -3,6 +3,8 @@ name: HTML CI/CD Pipeline
 on:
   push:
     branches: [main]
+    paths:
+       - '**.html'
   workflow_dispatch:
 
 permissions:
@@ -15,7 +17,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  ci-test:
+  ci-html:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -26,7 +28,7 @@ jobs:
         with:
           root: ./
 
-  cd-deploy:
+  cd-html:
     needs: ci-test            # deploy only runs if CI passes
     runs-on: ubuntu-latest
     environment:
