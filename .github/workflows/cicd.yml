@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-       - '**.html'
+      - '**.html'
   workflow_dispatch:
 
 permissions:
@@ -28,8 +28,8 @@ jobs:
         with:
           root: ./
 
-  cd-html:
-    needs: ci-test            # deploy only runs if CI passes
+  cd-deploy:
+    needs: ci-html
     runs-on: ubuntu-latest
     environment:
       name: github-pages
