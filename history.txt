@@ -1,0 +1,72 @@
+  504  git clone git@github.com:EmmanFulfilled/lab11.git
+  505  cd lab11
+  506  git init
+  507  nano index.html
+  508  nano .github/workflows/cicd.yml
+  509  l
+  510  mkdir .github
+  511  cd .github
+  512  mkdir workflows; cd workflows
+  513  nano cicd.yml
+  514  ~
+  515  cd ~
+  516  cd devops
+  517  cd lab11
+  518  cd devops26
+  519  cd lab11
+  520  l
+  521  git status
+  522  git add index.html
+  523  git commit -m "index commit"
+  524  git push origin main
+  525  git status
+  526  git add .
+  527  git commit -m "cicd v1"; git push origin main
+  528  nano index.html
+  529  git status
+  530  git add .; git commit -am "cicd v2"; git push origin main
+  531  nano index.html
+  532  git add .; git commit -am "cicd v3"; git push origin main
+  533  nano .github/workflows/cicd.yml
+  534  nano .github/workflows/ci.yml
+  535  git add .; git commit -m "split html and bash workflows"; git push origin main
+  536  nano hello.sh
+  537  git add .; git commit -m "bash file v1"; git push origin main
+  538  nano hello.sh
+  539  git add .; git commit -am "bash file v2"; git push origin main
+  540  nano index.html
+  541  git add .
+  542  git status
+  543  git commit -am "change hello in index.html"; git push origin main
+  544  git mv .github/workflows/ci.yml .github/workflows/bash-ci.yml; git commit -am "split html and bash workflows (fixed)"; git push origin main
+  545  nano hello.sh
+  546  git status
+  547  git add .
+  548  git commit -am "bash file v3"; git push origin main
+  549  tree
+  550  trees
+  551  sudo apt update && sudo apt install -y tree
+  552  tree
+  553  cd .
+  554  tree
+  555  cd .github
+  556  l
+  557  cd workflows
+  558  tree
+  559  cd ..
+  560  tree
+  561  nano .github/workflows/cicd.yml
+  562  git status
+  563  nano hello.sh
+  564  nano index.html
+  565  git status
+  566  git mv .github/workflows/ci.yml .github/workflows/bash-ci.yml
+  567  cat > .github/workflows/cicd.yml <<'EOF'
+  568  l
+  569  grep -n "cd-deploy\|needs" .github/workflows/cicd.yml
+  570  git add .github/workflows/cicd.yml && git commit -m "fix cicd.yml job names" && git push origin main
+  571  cat > hello.sh <<'EOF'
+  572  git add hello.sh && git commit -m "bash file v4" && git push origin main
+  573  sed -i 's|<h1>.*</h1>|<h1>Hello AGAIN AGAIN from CD lab</h1>|' index.html && git add index.html && git commit -m "change hello in index.html" && git push origin main
+  574  sed -i '2i # greet the user by name' hello.sh && sed -i 's|<h1>.*</h1>|<h1>Hello from BOTH files test</h1>|' index.html && git diff
+  575  git add hello.sh index.html && git commit -m "edit both test" && git push origin main
