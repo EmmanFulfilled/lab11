@@ -1,4 +1,5 @@
 #!/bin/bash
+# greet the user by name
 if [ $# -eq 1 ]
 then
   echo "hi $1"
